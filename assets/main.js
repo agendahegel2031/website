@@ -28,8 +28,11 @@ form.addEventListener("submit", async (event) => {
       status.textContent = messages.success;
       return;
     }
+    // Log MailerLite's own explanation (e.g. "reCAPTCHA failed") for debugging.
+    console.error("MailerLite signup failed:", data);
     status.textContent = data.errors?.fields?.email ? messages.invalid : messages.error;
-  } catch {
+  } catch (error) {
+    console.error("MailerLite signup failed:", error);
     status.textContent = messages.error;
   }
 
