@@ -1,0 +1,173 @@
+:root {
+  --ink: #111;
+  --muted: #767676;
+  --blue: #1d33f2;
+  --font: "Schibsted Grotesk", Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+  color: var(--ink);
+  font: 1.0625rem/1.45 var(--font);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: var(--blue);
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  max-width: 76rem;
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0 auto;
+  padding: clamp(1.25rem, 4vw, 3rem);
+}
+
+h1 {
+  margin: clamp(2.5rem, 11vh, 6.5rem) 0 0;
+  font-size: clamp(1.55rem, 4.9vw, 4.25rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  text-wrap: pretty;
+}
+
+h1 strong {
+  font-weight: 800;
+}
+
+mark {
+  margin: 0 -0.02em;
+  padding: 0 0.06em;
+  background: var(--blue);
+  color: #fff;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.25rem 3rem;
+  max-width: 46rem;
+  margin-top: auto;
+  padding-top: clamp(3.5rem, 10vh, 7rem);
+}
+
+h2 {
+  margin: 0 0 0.2rem;
+  font-size: inherit;
+  font-weight: 800;
+}
+
+main p {
+  margin: 0 0 0.9rem;
+}
+
+.field {
+  display: flex;
+  border-bottom: 2px solid var(--ink);
+}
+
+.field:focus-within {
+  border-color: var(--blue);
+}
+
+.field input {
+  flex: 1;
+  min-width: 0;
+  padding: 0.6rem 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+}
+
+.field input::placeholder {
+  color: var(--muted);
+}
+
+.field input:focus {
+  outline: none;
+}
+
+.field button {
+  padding: 0.6rem 0 0.6rem 1rem;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.field button:hover {
+  color: var(--blue);
+}
+
+.field button:disabled {
+  color: var(--muted);
+  cursor: wait;
+}
+
+main .status {
+  margin: 0.75rem 0 0;
+}
+
+.status:empty {
+  display: none;
+}
+
+/* After a successful signup only the message is shown. */
+.signup.done .field {
+  display: none;
+}
+
+.signup.done .status {
+  margin-top: 0;
+}
+
+.email {
+  font-size: 1.15rem;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4rem;
+  font-size: 0.8125rem;
+}
+
+@media (max-width: 40rem) {
+  body {
+    font-size: 1rem;
+  }
+
+  h1 {
+    line-height: 1.14;
+  }
+
+  main {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
